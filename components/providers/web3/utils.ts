@@ -26,7 +26,7 @@ export const createDefaultState = () => {
     provider: null,
     contract: null,
     isLoading: true,
-    hooks: setupHooks({isLoading: true} as any)
+    hooks: setupHooks({ isLoading: true } as any)
   }
 }
 
@@ -38,7 +38,7 @@ export const createWeb3State = ({
     provider,
     contract,
     isLoading,
-    hooks: setupHooks({ethereum, provider, contract, isLoading})
+    hooks: setupHooks({ ethereum, provider, contract, isLoading })
   }
 }
 
@@ -53,6 +53,7 @@ export const loadContract = async (
   }
 
   const res = await fetch(`/contracts/${name}.json`);
+  console.log({ res })
   const Artifact = await res.json();
 
   if (Artifact.networks[NETWORK_ID].address) {
