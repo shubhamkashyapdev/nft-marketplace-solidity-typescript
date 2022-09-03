@@ -3,6 +3,7 @@
 import { Disclosure } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { useAccount, useNetwork } from '@hooks/web3';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 import ActiveLink from '../link';
 import Walletbar from './Walletbar';
 
@@ -44,6 +45,7 @@ export default function Navbar() {
                     alt="Workflow"
                   />
                 </div>
+
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -63,17 +65,20 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
+              {
+                account && <ConnectButton />
+              }
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div className="text-gray-300 self-center mr-2">
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-purple-100 text-purple-800">
                     <svg className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
                       <circle cx={4} cy={4} r={3} />
                     </svg>
-                    { network.isLoading ?
+                    {network.isLoading ?
                       "Loading..." :
                       account.isInstalled ?
-                      network.data :
-                      "Install Web3 Wallet"
+                        network.data :
+                        "Install Web3 Wallet"
                     }
                   </span>
                 </div>

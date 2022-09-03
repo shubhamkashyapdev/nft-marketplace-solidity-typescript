@@ -3,6 +3,8 @@
 import { Menu } from "@headlessui/react";
 import Link from "next/link";
 import { FunctionComponent } from "react";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 
 type WalletbarProps = {
   isLoading: boolean;
@@ -26,7 +28,7 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({
     return (
       <div>
         <button
-          onClick={() => {}}
+          onClick={() => { }}
           type="button"
           className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
@@ -60,6 +62,8 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({
               </button>
             )}
           </Menu.Item>
+
+
           <Menu.Item>
             {({ active }) => (
               <Link href="/profile">
@@ -79,8 +83,8 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({
 
   if (isInstalled) {
     return (
-      <div>
-        <button
+      <div className="flex justify-center items-center">
+        {/* <button
           onClick={() => {
             connect()
           }}
@@ -88,7 +92,8 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({
           className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >
           Connect Wallet
-        </button>
+        </button> */}
+        <ConnectButton />;
       </div>
     )
   } else {
@@ -96,7 +101,7 @@ const Walletbar: FunctionComponent<WalletbarProps> = ({
       <div>
         <button
           onClick={() => {
-            window.open ('https://metamask.io', '_ blank');
+            window.open('https://metamask.io', '_ blank');
           }}
           type="button"
           className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
